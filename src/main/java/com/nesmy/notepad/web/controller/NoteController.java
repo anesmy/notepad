@@ -44,8 +44,10 @@ public class NoteController {
         // getting note
         Note note = noteServiceImpl.findById(noteId);
         if (note != null) {
-            note.setTitle(body.get("title"));
-            note.setContent(body.get("content"));
+            String updatedTitle = body.get("title");
+            if(updatedTitle != null && !updatedTitle.equals("")) note.setTitle(updatedTitle);
+            String updatedContent = body.get("content");
+            if(updatedContent != null && !updatedContent.equals("")) note.setContent(updatedContent);
             return noteServiceImpl.save(note);
         } else {
             // Handle the case where the note with the given ID is not found
