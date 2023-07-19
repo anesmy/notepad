@@ -10,7 +10,7 @@ public interface NoteService {
 
     Note save(Note note);
 
-    void deleteById(Integer id);
+    boolean deleteById(Integer id);
 
     List<Note> findAll();
 
